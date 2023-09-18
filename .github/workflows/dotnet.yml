@@ -1,0 +1,15 @@
+name: .NET Workflow
+on:
+  workflow_run:
+    workflows: ["React Workflow"]
+    types:
+      - completed
+
+jobs:
+  dotnet_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Add your .NET-specific build and deployment steps here
