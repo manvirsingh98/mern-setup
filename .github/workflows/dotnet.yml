@@ -1,9 +1,6 @@
 name: .NET Workflow
 on:
   workflow_run:
-    workflows: ["React Workflow"]
-    types:
-      - completed
 
 jobs:
   build:
