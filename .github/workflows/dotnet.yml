@@ -1,4 +1,4 @@
-name: tetset
+name: 030-dotnet-workflow
 
 on:
   push:
@@ -13,8 +13,13 @@ jobs:
   build-dotnet-app:
 
     runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: 03-app-dotnet
 
     steps:
+    - uses: actions/checkout@v3
     
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
