@@ -6,10 +6,16 @@ on:
       - completed
 
 jobs:
-  dotnet_job:
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet: [ '4.6.2' ]
+    name: Dotnet ${{ matrix.dotnet }} sample
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      # Add your .NET-specific build and deployment steps here
+      - uses: actions/checkout@v3
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+        id: stepid
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
